@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta(content='width=device-width, initial-scale=1.0' name='viewport')
+    %title= I18n.t('layout.title')
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+    = render 'partials/layout/header'
+    #page-wrapper
+      = render 'partials/layout/notifications'
+      .container-fluid
+        .row
+          .col-lg-12
+            = yield
+    = render 'partials/layout/footer'
